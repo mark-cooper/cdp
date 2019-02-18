@@ -6,6 +6,7 @@ import sys
 from bs4 import BeautifulSoup
 
 DATA_DIRECTORY = './data/'
+HEADERS = ['unitid', 'title', 'url']
 OUTPUT_CSV = 'identifiers.csv'
 metadata = []
 count = 0
@@ -48,7 +49,6 @@ for resource in os.listdir(DATA_DIRECTORY):
             count += 1
 
 with open(OUTPUT_CSV, 'w') as of:
-    keys = ['unitid', 'title', 'url']
-    dict_writer = csv.DictWriter(of, keys)
+    dict_writer = csv.DictWriter(of, HEADERS)
     dict_writer.writeheader()
     dict_writer.writerows(metadata)
