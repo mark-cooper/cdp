@@ -12,7 +12,7 @@ class EadFingerprint(object):
         self.title()
         self.unitid()
         try:
-            url = self.url()
+            self.url()
         except:
             pass
         return self.data
