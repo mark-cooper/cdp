@@ -1,5 +1,9 @@
+__pycache__/
 .vscode/
+build/
 data/
+dist/
 venv/
 *.csv
+*.pyc
 *.xml
