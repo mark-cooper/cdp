@@ -5,7 +5,7 @@ import csv
 from cdp import EadFingerprint
 from cdp import ProgressIndicator
 
-DATA_DIRECTORY = './data/ead/'
+DATA_DIRECTORY = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data', 'ead')  # noqa
 OUTPUT_CSV = 'identifiers.csv'
 metadata = []
 total = len([name for name in os.listdir(DATA_DIRECTORY)])
@@ -13,9 +13,9 @@ progress = ProgressIndicator(total)
 
 for resource in os.listdir(DATA_DIRECTORY):
     if resource.endswith('.xml'):
-        with open(os.path.join(DATA_DIRECTORY, resource)) as fp:
-            progress.tick()
-            metadata.append(EadFingerprint(fp).process())
+        progress.tick()
+        with open(os.path.join(DATA_DIRECTORY, resource)) as xml:
+            metadata.append(EadFingerprint(xml).process())
 
 with open(OUTPUT_CSV, 'w') as of:
     dict_writer = csv.DictWriter(of, EadFingerprint.ELEMENTS)
