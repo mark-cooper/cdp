@@ -1,6 +1,6 @@
 # CDP
 
-Support scripts for CDP.
+Support plugin and scripts for CDP.
 
 ```
 virtualenv venv --python=python3

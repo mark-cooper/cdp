@@ -10,6 +10,7 @@ class EadFingerprint(object):
         self.xml = BeautifulSoup(xml, 'xml')
 
     def process(self):
+        self.repo_name()
         self.title()
         self.unitid()
         try:
