@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 class EadFingerprint(object):
     """Process EAD fingerprint from XML."""
-    ELEMENTS = ['title', 'unitid', 'url']
+    ELEMENTS = ['repo_name', 'title', 'unitid', 'url']
 
     def __init__(self, xml):
         self.data = {}
@@ -17,6 +17,10 @@ class EadFingerprint(object):
         except:
             pass
         return self.data
+
+    def repo_name(self):
+        self.data['repo_name'] = self.xml.ead.eadheader.filedesc.publicationstmt.publisher.contents[0].strip()  # noqa
+        return self.data['repo_name']
 
     def title(self):
         self.data['title'] = self.xml.ead.eadheader.filedesc.titlestmt.titleproper.contents[0].strip()  # noqa

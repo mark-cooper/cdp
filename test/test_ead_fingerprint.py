@@ -9,6 +9,10 @@ class TestEadFingerprint(unittest.TestCase):
         with open(os.path.join(dir_path, 'fixtures', 'ead.xml')) as xml:  # noqa
             self.fingerprint = EadFingerprint(xml)
 
+    def test_repo_name(self):
+        repo_name = self.fingerprint.repo_name()
+        self.assertEqual(repo_name, 'GoneRepo')
+
     def test_title(self):
         title = self.fingerprint.title()
         self.assertEqual(title, 'Aperture Labs Records')
