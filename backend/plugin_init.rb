@@ -1,11 +1,14 @@
 require 'csv'
+require_relative 'monkey_array'
 
 IDENTIFIERS = File.join(File.dirname(__FILE__), '..', 'identifiers.csv')
+RESOURCES = File.join(File.dirname(__FILE__), '..', 'resources.csv')
 puts "\n[CDP] Loading identifiers: #{IDENTIFIERS}\n\n"
 
 ArchivesSpaceService.loaded_hook do
   ids = {}
   repos = {}
+  results = []
 
   # gather ids and repo names
   CSV.foreach(IDENTIFIERS, headers: true) do |row|
@@ -32,9 +35,15 @@ ArchivesSpaceService.loaded_hook do
           identifier: "[\"#{id}\"]"
         }
       )
-      puts "\n[CDP] #{refs} [#{refs.class}]\n\n"
       raise "Id not found: #{id}" if refs.empty?
+      puts "\n[CDP] #{refs} [#{refs.class}]\n\n"
+      results << {
+        'repo_id' => repo_id,
+        'resource_id' => id,
+        'resource_uri' => refs[0]['ref'],
+      }
     end
-    break
   end
+  puts "\n[CDP] Writing resources to CSV\n\n"
+  results.to_csv(RESOURCES)
 end
