@@ -20,7 +20,7 @@ service.ping()
 # get list of resources (by identifier) with assessments to delete
 with open(resources) as f:
     reader = csv.DictReader(f)
-    target_resources = [r['resource_id'] for r in reader]
+    target_resources = [r['resource_identifier'] for r in reader]
 
 # read assessments data from db query
 with open(assessments) as f:

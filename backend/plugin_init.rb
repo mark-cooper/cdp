@@ -47,7 +47,8 @@ ArchivesSpaceService.loaded_hook do
 
       results << {
         'repo_id' => repo_id,
-        'resource_id' => id,
+        'resource_id' => refs[0]['ref'].split('/')[-1],
+        'resource_identifier' => id,
         'resource_uri' => refs[0]['ref'],
       }
     end
