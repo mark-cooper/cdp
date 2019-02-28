@@ -4,6 +4,7 @@ build/
 data/
 dist/
 venv/
+*.bak
 *.csv
 *.pyc
 *.xml
