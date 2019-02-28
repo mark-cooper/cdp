@@ -20,7 +20,10 @@ class ArchivesSpace(object):
         )
 
     def delete(self, uri):
-        self.client.delete(uri)
+        return self.client.delete(uri)
+
+    def get(self, uri):
+        return self.client.get(uri).json()
 
     def ping(self):
         self.client.authorize()
