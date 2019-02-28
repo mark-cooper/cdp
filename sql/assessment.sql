@@ -1,5 +1,6 @@
 # review assessment behavior via ui
 SELECT
+	repo.id as repo_id,
     r.id as current_resource_id,
     -- r.identifier as resource_identifier,
     substring_index(substring_index(r.identifier, '["', -1), '",', 1) as resource_identifier_clean,
@@ -13,4 +14,5 @@ SELECT
 FROM resource r
 JOIN assessment_rlshp ar ON r.id = ar.resource_id
 JOIN assessment a ON a.id = ar.assessment_id
+JOIN repository repo ON repo.id = a.repo_id
 ;
