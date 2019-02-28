@@ -35,8 +35,16 @@ ArchivesSpaceService.loaded_hook do
           identifier: "[\"#{id}\"]"
         }
       )
-      raise "Id not found: #{id}" if refs.empty?
+      if refs.empty?
+        puts "Id not found: #{id}"
+        next
+      end
       puts "\n[CDP] #{refs} [#{refs.class}]\n\n"
+
+      # rid = refs[0]['ref'].split('/')[-1]
+      # resource = Resource.to_jsonmodel(Resource.get_or_die(rid))
+      # puts "\n[CDP] #{resource.inspect}\n\n"
+
       results << {
         'repo_id' => repo_id,
         'resource_id' => id,
