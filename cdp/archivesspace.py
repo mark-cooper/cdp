@@ -1,8 +1,15 @@
+import os
 from asnake.client import ASnakeClient
 
 
 class ArchivesSpace(object):
     """ArchivesSpace client."""
+
+    DEFAULT_CONFIG = {
+        'baseurl': 'http://localhost:4567',
+        'username': 'admin',
+        'password': os.environ['CDP_PASSWORD'],
+    }
 
     def __init__(self, config: dict):
         self.config = config
