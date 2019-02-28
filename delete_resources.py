@@ -5,9 +5,11 @@ import os
 from cdp import ArchivesSpace
 from time import sleep
 
-base_path = os.path.dirname(os.path.realpath(__file__))
 data = []
+
+base_path = os.path.dirname(os.path.realpath(__file__))
 resources = os.path.join(base_path, 'resources.csv')
+
 service = ArchivesSpace(ArchivesSpace.DEFAULT_CONFIG)
 service.ping()
 
