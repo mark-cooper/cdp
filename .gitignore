@@ -1,4 +1,5 @@
 __pycache__/
+.session
 .vscode/
 build/
 data/
@@ -8,4 +9,5 @@ venv/
 *.csv
 *.pyc
 *.xml
+ead.json
 scratch.py
