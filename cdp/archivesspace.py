@@ -1,4 +1,5 @@
 import os
+import requests
 from asnake.client import ASnakeClient
 
 
@@ -19,11 +20,19 @@ class ArchivesSpace(object):
             password=self.config['password'],
         )
 
+    def convert_to_json(self, xml):
+        path = 'plugins/jsonmodel_from_format/resource/ead'
+        url = f'{self.config["baseurl"]}/{path}'
+        headers = {'Content-Type': 'text/xml'}
+        return requests.post(url, data=xml, headers=headers).json()
+
     def delete(self, uri):
         return self.client.delete(uri)
 
     def get(self, uri):
         return self.client.get(uri).json()
+
+    # def import(self, json):
 
     def ping(self):
         self.client.authorize()
