@@ -11,6 +11,7 @@ python3 identifiers.py
 
 mkdir -p data/assessments
 mkdir -p data/ead
+mkdir -p data/resources
 ```
 
 ## Steps
@@ -38,4 +39,25 @@ SELECT count(*) FROM assessment; # b4: 77, af: 46
 SELECT count(*) FROM collection_management; # b4: 4301, af: 4240
 SELECT count(*) FROM spawned_rlshp; # b4: 4544, af: 2195
 SELECT count(*) FROM user_defined; # b4: 8412, af: 7043
+```
+
+CLI import testing:
+
+```bash
+echo "export TOKEN=$(curl -Fpassword=$CDP_PASSWORD http://localhost:4567/users/admin/login | jq '.session')" > .session
+source .session
+
+curl \
+  -H "Content-Type: text/xml" \
+  -H "X-ArchivesSpace-Session: $TOKEN" \
+  -X POST \
+  -d @data/ead/2157842_MERGED-CLEAN_ead.xml \
+  "http://localhost:4567/plugins/jsonmodel_from_format/resource/ead" > ead.json
+
+curl \
+  -H "Content-Type: application/json" \
+  -H "X-ArchivesSpace-Session: $TOKEN" \
+  -X POST \
+  -d @ead.json \
+  "http://localhost:4567/repositories/2/batch_imports"
 ```
