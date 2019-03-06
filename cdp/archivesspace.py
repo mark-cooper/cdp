@@ -23,7 +23,11 @@ class ArchivesSpace(object):
     def convert_to_json(self, xml):
         path = 'plugins/jsonmodel_from_format/resource/ead'
         url = f'{self.config["baseurl"]}/{path}'
-        headers = {'Content-Type': 'text/xml'}
+        token = self.client.session.headers['X-ArchivesSpace-Session']
+        headers = {
+            'Content-Type': 'text/xml',
+            'X-ArchivesSpace-Session': token,
+        }
         return requests.post(url, data=xml, headers=headers).json()
 
     def delete(self, uri):
