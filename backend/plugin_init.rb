@@ -54,5 +54,5 @@ ArchivesSpaceService.loaded_hook do
     end
   end
   puts "\n[CDP] Writing resources to CSV\n\n"
-  results.to_csv(RESOURCES)
+  results.to_csv(RESOURCES) if results.any?
 end
