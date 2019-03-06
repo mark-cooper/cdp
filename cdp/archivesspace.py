@@ -28,7 +28,7 @@ class ArchivesSpace(object):
             'Content-Type': 'text/xml',
             'X-ArchivesSpace-Session': token,
         }
-        return requests.post(url, data=xml, headers=headers).json()
+        return requests.post(url, data=xml, headers=headers, timeout=None).json()  # noqa
 
     def delete(self, uri):
         return self.client.delete(uri)
