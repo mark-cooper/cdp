@@ -11,6 +11,7 @@ python3 identifiers.py
 
 mkdir -p data/assessments
 mkdir -p data/ead
+mkdir -p data/import
 mkdir -p data/resources
 ```
 
@@ -28,8 +29,8 @@ mkdir -p data/resources
 - Run `delete assessments.py`
 - Run `delete_resources.py`
 - Confirm count of resources from db [ex: 4268 - 2887 = 1381]
-- [TODO] Prepare import directories
-- [TODO] Import incoming XML
+- Run `import.py` to prepare import files
+- Start ArchivesSpace to import XML
 - [TODO] Restore related
 
 Counts:
