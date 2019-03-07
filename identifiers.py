@@ -15,7 +15,8 @@ for resource in os.listdir(DATA_DIRECTORY):
     if resource.endswith('.xml'):
         progress.tick()
         with open(os.path.join(DATA_DIRECTORY, resource)) as xml:
-            metadata.append(EadFingerprint(xml).process())
+            fn = os.path.basename(xml.name)
+            metadata.append(EadFingerprint(fn, xml).process())
 
 with open(OUTPUT_CSV, 'w') as of:
     dict_writer = csv.DictWriter(of, EadFingerprint.ELEMENTS)

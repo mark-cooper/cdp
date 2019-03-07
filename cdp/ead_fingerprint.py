@@ -3,13 +3,15 @@ from bs4 import BeautifulSoup
 
 class EadFingerprint(object):
     """Process EAD fingerprint from XML."""
-    ELEMENTS = ['repo_name', 'title', 'unitid', 'url']
+    ELEMENTS = ['filename', 'repo_name', 'title', 'unitid', 'url']
 
-    def __init__(self, xml):
+    def __init__(self, filename, xml):
         self.data = {}
+        self.filename = filename
         self.xml = BeautifulSoup(xml, 'xml')
 
     def process(self):
+        self.data['filename'] = self.filename
         self.repo_name()
         self.title()
         self.unitid()
