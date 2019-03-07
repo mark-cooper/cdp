@@ -21,13 +21,14 @@ mkdir -p data/resources
 - Export and restore database
 - Run reports (also counts, below)
 - Run `identifiers.py` against incoming XML
-- Enable cdp and format plugin for v2.5.2 (`config.rb`)
+- Update the ArchivesSpace config for CDP (`config.rb`)
 - Start backend to get `resources.csv` (make backup)
 - Check resources csv count matches number of ead records
 - Get count of resources from db [ex: 4268]
 - Run `delete assessments.py`
 - Run `delete_resources.py`
 - Confirm count of resources from db [ex: 4268 - 2887 = 1381]
+- [TODO] Prepare import directories
 - [TODO] Import incoming XML
 - [TODO] Restore related
 
