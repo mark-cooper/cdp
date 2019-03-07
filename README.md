@@ -30,6 +30,7 @@ mkdir -p data/resources
 - Run `delete_resources.py`
 - Confirm count of resources from db [ex: 4268 - 2887 = 1381]
 - Run `import.py` to prepare import files
+- `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1381
 - Start ArchivesSpace to import XML
 - [TODO] Restore related
 
