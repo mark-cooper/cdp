@@ -32,7 +32,7 @@ mkdir -p data/resources
 - Confirm count of resources from db [ex: 4268 - 2887 = 1381]
 - Run `import.py` to prepare import files
 - `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1381
-- Start ArchivesSpace to import XML
+- Start ArchivesSpace to import XML and get updated `resources.csv`
 - `ls /tmp/aspace/json/*/*.json | wc -l`
 - [TODO] Restore related
 
