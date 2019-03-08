@@ -11,3 +11,4 @@ venv/
 *.xml
 ead.json
 scratch.py
+sizes.txt

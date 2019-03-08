@@ -3,6 +3,9 @@ AppConfig[:plugins] << "shelve_it" # not related
 AppConfig[:plugins] << "cdp"
 AppConfig[:plugins] << "aspace-importer"
 
+AppConfig[:enable_indexer] = false
+AppConfig[:solr_backup_number_to_keep] = 0
+
 AppConfig[:importer_profiles] = [
   {
     name: 'RBML',
@@ -24,7 +27,7 @@ AppConfig[:importer_profiles] = [
       directory: "/tmp/aspace/json/RBML",
       error_file: "/tmp/aspace/json/RBML/importer.err",
     },
-    threads: 2,
+    threads: 1,
     verbose: true,
   },
   {
@@ -47,7 +50,7 @@ AppConfig[:importer_profiles] = [
       directory: "/tmp/aspace/json/AV",
       error_file: "/tmp/aspace/json/AV/importer.err",
     },
-    threads: 2,
+    threads: 1,
     verbose: true,
   },
   {
@@ -70,7 +73,7 @@ AppConfig[:importer_profiles] = [
       directory: "/tmp/aspace/json/EA",
       error_file: "/tmp/aspace/json/EA/importer.err",
     },
-    threads: 2,
+    threads: 1,
     verbose: true,
   },
   {
@@ -93,7 +96,7 @@ AppConfig[:importer_profiles] = [
       directory: "/tmp/aspace/json/UT",
       error_file: "/tmp/aspace/json/UT/importer.err",
     },
-    threads: 2,
+    threads: 1,
     verbose: true,
   }
 ]

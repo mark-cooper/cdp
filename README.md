@@ -23,6 +23,7 @@ mkdir -p data/resources
 - Run reports (also counts, below)
 - Run `identifiers.py` against incoming XML
 - Update the ArchivesSpace config for CDP (`config.rb`)
+- Update `build.xml` set env `-Xmx4096m`
 - Start backend to get `resources.csv` (make backup)
 - Check resources csv count matches number of ead records
 - Get count of resources from db [ex: 4268]
