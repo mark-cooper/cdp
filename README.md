@@ -32,9 +32,13 @@ mkdir -p data/resources
 - Confirm count of resources from db [ex: 4268 - 2887 = 1381]
 - Run `import.py` to prepare import files
 - `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1381
-- Start ArchivesSpace to import XML and get updated `resources.csv`
+- Start ArchivesSpace to import XML
+- `ls /tmp/aspace/ead/*/*.err | wc -l`
 - `ls /tmp/aspace/json/*/*.json | wc -l`
-- [TODO] Restore related
+-  Restart ArchivesSpace to get updated `resources.csv`
+- Run `accession.py`
+- Run `collection_management.py`
+- Run `user_defined.py`
 
 Counts:
 
