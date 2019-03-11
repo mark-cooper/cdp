@@ -8,15 +8,11 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 python3 -m unittest discover
 python3 identifiers.py
-
-mkdir -p data/assessments
-mkdir -p data/ead
-mkdir -p data/import
-mkdir -p data/resources
 ```
 
 ## Steps
 
+- `./setup.sh` # warning this deletes csv & files in `./data/`
 - Set `CDP_PASSWORD` for environment
 - Copy ead records to `data/ead`
 - Export and restore database
