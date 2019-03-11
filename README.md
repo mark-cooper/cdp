@@ -19,19 +19,20 @@ python3 identifiers.py
 - Run reports (also counts, below)
 - Run `identifiers.py` against incoming XML
 - Update the ArchivesSpace config for CDP (`config.rb`)
-- Update `build.xml` set env `-Xmx4096m`
+- Update `build.xml` set env `-Xmx8192m`
 - Start backend to get `resources.csv` (make backup)
 - Check resources csv count matches number of ead records
-- Get count of resources from db [ex: 4268]
-- Run `delete assessments.py`
+- `SELECT count(*) FROM resource;`[ex: 4270]
+- Run `delete assessments.py` (`ls data/assessments | wc -l`)
 - Run `delete_resources.py`
-- Confirm count of resources from db [ex: 4268 - 2887 = 1381]
+- Stop ArchivesSpace
+- Confirm count of resources from db [ex: 4270 - 2887 = 1383]
 - Run `import.py` to prepare import files
-- `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1381
+- `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1383
 - Start ArchivesSpace to import XML
-- `ls /tmp/aspace/ead/*/*.err | wc -l`
+- `ls /tmp/aspace/ead/*/*.xml.err | wc -l`
 - `ls /tmp/aspace/json/*/*.json | wc -l`
--  Restart ArchivesSpace to get updated `resources.csv`
+- Restart ArchivesSpace to get updated `resources.csv`
 - Run `accession.py`
 - Run `collection_management.py`
 - Run `user_defined.py`
