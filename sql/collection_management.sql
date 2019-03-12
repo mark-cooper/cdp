@@ -4,7 +4,7 @@ SELECT
     substring_index(substring_index(r.identifier, '["', -1), '",', 1) as resource_identifier_clean,
     r.title,
     r.ead_id,
-    cm.processing_plan,
+    REPLACE(cm.processing_plan, '"', "'") as processing_plan,
     cm.processing_priority_id,
     cm.processing_status_id,
     cm.processors

@@ -17,6 +17,23 @@ class DB:
       VALUES (%s,%s,%s,%s,%s)
     """
 
+    COLLECTION_MANAGEMENT_INSERT_QUERY = """
+      INSERT INTO `collection_management`
+      (
+        `lock_version`,
+        `json_schema_version`,
+        `resource_id`,
+        `processing_plan`,
+        `processing_priority_id`,
+        `processing_status_id`,
+        `processors`,
+        `create_time`,
+        `system_mtime`,
+        `user_mtime`
+      )
+      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    """
+
     # TODO: text_2
     USER_DEFINED_INSERT_QUERY = """
       INSERT INTO `user_defined`
