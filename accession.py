@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 
 import csv
+import datetime
 import os
 
 data = []
+inserts = []
+positions = {}
 target_resources = {}
 
 base_path = os.path.dirname(os.path.realpath(__file__))
@@ -24,10 +27,18 @@ with open(accessions) as f:
 for accession in data:
     rid = accession['resource_identifier_clean']
     if rid in target_resources:
+        insert = {}
+        if rid in positions:
+            positions[rid] += 1
+        else:
+            positions[rid] = 0
+        insert['accession_id'] = accession['linked_accession_id']
+        insert['resource_id'] = target_resources[rid]
+        insert['aspace_relationship_position'] = positions[rid]
+        insert['system_mtime'] = datetime.datetime.now()
+        insert['user_mtime'] = datetime.datetime.now()
+        inserts.append(insert)
         matched += 1
-        aid = accession['linked_accession_id']
-        pos = 0
-        system_mtime = ''
-        user_mtime = ''
 
 print(matched)
+print(inserts)
