@@ -13,3 +13,4 @@ venv/
 ead.json
 scratch.py
 sizes.txt
+sql/wip.sql
