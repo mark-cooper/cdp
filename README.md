@@ -2,12 +2,16 @@
 
 Support plugin and scripts for CDP.
 
-```
+```bash
 virtualenv venv --python=python3
 source venv/bin/activate
 pip3 install -r requirements.txt
 python3 -m unittest discover
 python3 identifiers.py
+
+mkdir plugins
+cd plugins
+git clone https://github.com/lyrasis/aspace-importer.git
 ```
 
 ## Steps
@@ -18,7 +22,7 @@ python3 identifiers.py
 - Export and restore database
 - Run reports (also counts, below)
 - Run `identifiers.py` against incoming XML
-- Update the ArchivesSpace config for CDP (`config.rb`)
+- Update the ArchivesSpace config for CDP (`config/config.rb`)
 - Update `build.xml` set env `-Xmx8192m`
 - Start backend to get `resources.csv` (make backup)
 - Check resources csv count matches number of ead records
@@ -29,13 +33,27 @@ python3 identifiers.py
 - Confirm count of resources from db [ex: 4270 - 2887 = 1383]
 - Run `import.py` to prepare import files
 - `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1383
-- Start ArchivesSpace to import XML
+- Start ArchivesSpace using Docker (below) to import XML
 - `ls /tmp/aspace/ead/*/*.xml.err | wc -l`
 - `ls /tmp/aspace/json/*/*.json | wc -l`
 - Restart ArchivesSpace to get updated `resources.csv`
 - Run `accession.py`
 - Run `collection_management.py`
 - Run `user_defined.py`
+
+Running ArchivesSpace for the import step:
+
+```bash
+docker run -it \
+  --rm \
+  --name aspace \
+  --net=host \
+  -e ASPACE_JAVA_XMX='-Xmx8192m' \
+  -v $PWD/config:/archivesspace/config \
+  -v $PWD/plugins:/archivesspace/plugins \
+  -v /tmp/aspace:/tmp/aspace \
+  archivesspace/archivesspace:2.5.2
+```
 
 Counts:
 

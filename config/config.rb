@@ -1,9 +1,16 @@
 # CDP
+AppConfig[:db_url] = 'jdbc:mysql://127.0.0.1:3306/archivesspace?useUnicode=true&characterEncoding=UTF-8&user=as&password=as123'
+
 AppConfig[:plugins] << "shelve_it" # not related
 AppConfig[:plugins] << "cdp"
 AppConfig[:plugins] << "aspace-importer"
 
+AppConfig[:backend_url] = "http://localhost:4567"
+
+AppConfig[:enable_frontend] = false
 AppConfig[:enable_indexer] = false
+AppConfig[:enable_oai] = false
+AppConfig[:enable_public] = false
 AppConfig[:solr_backup_number_to_keep] = 0
 
 AppConfig[:importer_profiles] = [

@@ -4,6 +4,7 @@ __pycache__/
 build/
 data/
 dist/
+plugins/
 venv/
 *.bak
 *.csv
