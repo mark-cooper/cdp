@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from cdp import DB
 import csv
 import datetime
 import os
@@ -37,8 +38,11 @@ for accession in data:
         insert['aspace_relationship_position'] = positions[rid]
         insert['system_mtime'] = datetime.datetime.now()
         insert['user_mtime'] = datetime.datetime.now()
-        inserts.append(insert)
+        inserts.append(list(insert.values()))
         matched += 1
 
-print(matched)
-print(inserts)
+print(f'{matched} Records matched.')
+
+db = DB(DB.DEFAULT_CONFIG)
+db.insert(DB.ACCESSION_INSERT_QUERY, inserts)
+db.close()
