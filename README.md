@@ -37,6 +37,7 @@ git clone https://github.com/lyrasis/aspace-importer.git
 - `ls /tmp/aspace/ead/*/*.xml.err | wc -l`
 - `ls /tmp/aspace/json/*/*.json | wc -l`
 - Restart ArchivesSpace to get updated `resources.csv`
+- Create `sql/wip.sql` (db dump)
 - Run `accession.py`
 - Run `collection_management.py`
 - Run `user_defined.py`
