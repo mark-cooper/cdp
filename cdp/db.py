@@ -17,6 +17,26 @@ class DB:
       VALUES (%s,%s,%s,%s,%s)
     """
 
+    # TODO: text_2
+    USER_DEFINED_INSERT_QUERY = """
+      INSERT INTO `user_defined`
+      (
+        `lock_version`,
+        `json_schema_version`,
+        `resource_id`,
+        `integer_1`,
+        `string_1`,
+        `string_2`,
+        `string_3`,
+        `string_4`,
+        `text_1`,
+        `create_time`,
+        `system_mtime`,
+        `user_mtime`
+      )
+      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    """
+
     DEFAULT_CONFIG = {
         'host': 'localhost',
         'database': 'archivesspace',

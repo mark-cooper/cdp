@@ -10,6 +10,7 @@ SELECT
     ud.string_3,
     ud.string_4,
     ud.text_1
+    # ud.text_2
     # created_by
     # last_modified_by
     # create_time
