@@ -41,7 +41,8 @@ for ud in data:
         insert['create_time'] = datetime.datetime.now()
         insert['system_mtime'] = datetime.datetime.now()
         insert['user_mtime'] = datetime.datetime.now()
-        inserts.append(list(insert.values()))
+        i = [x if x != 'NULL' else None for x in insert.values()]
+        inserts.append(i)
         matched += 1
 
 print(f'{matched} Records matched.')
