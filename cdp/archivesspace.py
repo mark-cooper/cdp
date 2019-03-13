@@ -41,3 +41,6 @@ class ArchivesSpace(object):
     def ping(self):
         self.client.authorize()
         print('Login OK!')
+
+    def post(self, uri, payload)
+        return self.client.post(uri, json=payload)
