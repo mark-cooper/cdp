@@ -11,3 +11,5 @@ rm -f data/import/*
 rm -f data/resources/*
 
 rm -f *.csv
+rm -f *.bak
+rm -f sql/wip.sql
