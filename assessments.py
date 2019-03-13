@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# https://github.com/archivesspace/archivesspace/blob/master/backend/app/controllers/assessment.rb#L15-L23
+# https://github.com/archivesspace/archivesspace/blob/master/backend/spec/controller_assessment_spec.rb
+
 import csv
 import json
 import os
