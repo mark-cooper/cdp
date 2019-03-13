@@ -90,3 +90,10 @@ curl \
   -d @ead.json \
   "http://localhost:4567/repositories/2/batch_imports"
 ```
+
+Test restore command:
+
+```bash
+ansible-playbook -i inventory/staging/general/ ops/restore.yml \
+  --extra-vars="database=columbiatest" --limit=as-staging-general-app1.lyrtech.org
+```
