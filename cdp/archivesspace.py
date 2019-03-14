@@ -42,5 +42,5 @@ class ArchivesSpace(object):
         self.client.authorize()
         print('Login OK!')
 
-    def post(self, uri, payload)
+    def post(self, uri, payload):
         return self.client.post(uri, json=payload)
