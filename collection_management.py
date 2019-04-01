@@ -35,6 +35,8 @@ for cm in data:
         insert['processing_priority_id'] = cm['processing_priority_id']
         insert['processing_status_id'] = cm['processing_status_id']
         insert['processors'] = cm['processors']
+        insert['created_by'] = cm['created_by']
+        insert['last_modified_by'] = cm['last_modified_by']
         insert['create_time'] = datetime.datetime.now()
         insert['system_mtime'] = datetime.datetime.now()
         insert['user_mtime'] = datetime.datetime.now()

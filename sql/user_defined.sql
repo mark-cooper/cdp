@@ -12,8 +12,8 @@ SELECT
     ud.text_1,
     ud.text_2,
     ud.enum_4_id
-    # created_by
-    # last_modified_by
+    ud.created_by,
+    ud.last_modified_by
     # create_time
     # system_mtime
     # user_mtime

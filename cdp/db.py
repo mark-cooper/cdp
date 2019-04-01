@@ -27,11 +27,32 @@ class DB:
         `processing_priority_id`,
         `processing_status_id`,
         `processors`,
+        `created_by`,
+        `last_modified_by`,
         `create_time`,
         `system_mtime`,
         `user_mtime`
       )
-      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    """
+
+    EXTERNAL_DOCUMENT_INSERT_QUERY = """
+      INSERT INTO `external_document`
+      (
+        `lock_version`,
+        `json_schema_version`,
+        `resource_id`,
+        `title`,
+        `location`,
+        `location_sha1`,
+        `publish`,
+        `created_by`,
+        `last_modified_by`,
+        `create_time`,
+        `system_mtime`,
+        `user_mtime`
+      )
+      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
     """
 
     # TODO: text_2
@@ -47,11 +68,15 @@ class DB:
         `string_3`,
         `string_4`,
         `text_1`,
+        `text_2`,
+        `enum_4_id`,
+        `created_by`,
+        `last_modified_by`,
         `create_time`,
         `system_mtime`,
         `user_mtime`
       )
-      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
     """
 
     DEFAULT_CONFIG = {
