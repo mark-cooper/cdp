@@ -9,8 +9,9 @@ SELECT
     ud.string_2,
     ud.string_3,
     ud.string_4,
-    ud.text_1
-    # ud.text_2
+    ud.text_1,
+    ud.text_2,
+    ud.enum_4_id
     # created_by
     # last_modified_by
     # create_time

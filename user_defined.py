@@ -37,7 +37,8 @@ for ud in data:
         insert['string_3'] = ud['string_3']
         insert['string_4'] = ud['string_4']
         insert['text_1'] = ud['text_1']
-        # insert['text_2'] = ud['text_2']
+        insert['text_2'] = ud['text_2']
+        insert['enum_4_id'] = ud['enum_4_id']
         insert['create_time'] = datetime.datetime.now()
         insert['system_mtime'] = datetime.datetime.now()
         insert['user_mtime'] = datetime.datetime.now()
