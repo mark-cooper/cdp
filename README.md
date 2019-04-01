@@ -42,6 +42,7 @@ git clone https://github.com/lyrasis/aspace-importer.git
 - Run `accession.py` (`SELECT count(*) FROM spawned_rlshp;`)
 - Run `collection_management.py`
 - Run `user_defined.py`
+- Run `publish.sql`
 - Start ArchivesSpace
 - Run `assessments.py`
 - Done!
