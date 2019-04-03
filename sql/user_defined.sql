@@ -11,7 +11,7 @@ SELECT
     ud.string_4,
     ud.text_1,
     ud.text_2,
-    ud.enum_4_id
+    ud.enum_4_id,
     ud.created_by,
     ud.last_modified_by
     # create_time
