@@ -11,7 +11,7 @@ positions = {}
 target_resources = {}
 
 base_path = os.path.dirname(os.path.realpath(__file__))
-accessions = os.path.join(base_path, 'accessions.csv')
+accessions = os.path.join(base_path, 'accession.csv')
 resources = os.path.join(base_path, 'resources.csv')
 
 matched = 0

@@ -12,7 +12,7 @@ target_resources = []
 DATA_DIRECTORY = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'data', 'assessments')  # noqa
 base_path = os.path.dirname(os.path.realpath(__file__))
 resources = os.path.join(base_path, 'resources.csv')
-assessments = os.path.join(base_path, 'assessments.csv')
+assessments = os.path.join(base_path, 'assessment.csv')
 
 service = ArchivesSpace(ArchivesSpace.DEFAULT_CONFIG)
 service.ping()
