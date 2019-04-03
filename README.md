@@ -18,29 +18,32 @@ git clone https://github.com/lyrasis/aspace-importer.git
 
 - `./setup.sh` # warning this deletes csv & files in `./data/`
 - Set `CDP_PASSWORD` for environment
-- Copy ead records to `data/ead`
-- Export and restore database
+- Copy ead records to `data/ead` (`ls data/ead/ | wc -l` ~ 1390)
+- Export and restore database:
+- `ansible-playbook -i inventory/prod/general/ ops/dump.yml --extra-vars="database=columbia"`
 - Run reports (also counts, below)
-- Run `identifiers.py` against incoming XML
+- Run `identifiers.py` against incoming XML (`python3 identifiers.py`)
 - Update the ArchivesSpace config for CDP (`config/config.rb`)
 - Update `build.xml` set env `-Xmx8192m`
-- Start backend to get `resources.csv` (make backup)
+- Start backend to get `resources.csv` (make backup: `resources.csv.orig.bak`)
 - Check resources csv count matches number of ead records
-- `SELECT count(*) FROM resource;`[ex: 4270]
-- Run `delete assessments.py` (`ls data/assessments | wc -l`)
-- Run `delete_resources.py`
+- `SELECT count(*) FROM resource;` [ex: 4294]
+- Run `python3 delete_assessments.py` (`ls data/assessments | wc -l`)
+- Run `python3 delete_resources.py`
 - Stop ArchivesSpace
-- Confirm count of resources from db [ex: 4270 - 2887 = 1383]
-- Run `import.py` to prepare import files
-- `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1383
+- Confirm count of resources from db [ex: 4294 - 2904 = 1390]
+- Run `python3 import.py` to prepare import files
+- `ls /tmp/aspace/ead/*/*.xml | wc -l` # 1390
 - Start ArchivesSpace using Docker (below) to import XML
 - `ls /tmp/aspace/ead/*/*.xml.err | wc -l`
 - `ls /tmp/aspace/json/*/*.json | wc -l`
+- `for file in /tmp/aspace/ead/*/*.xml.err; do mv "$file" "${file/.xml.err/.xml}"; done`
 - Restart ArchivesSpace to get updated `resources.csv`
 - Stop ArchivesSpace
 - Create `sql/wip.sql` (db dump)
 - Run `accession.py` (`SELECT count(*) FROM spawned_rlshp;`)
 - Run `collection_management.py`
+- Run `external_document.py`
 - Run `user_defined.py`
 - Run `publish.sql`
 - Start ArchivesSpace
