@@ -41,13 +41,13 @@ git clone https://github.com/lyrasis/aspace-importer.git
 - Restart ArchivesSpace to get updated `resources.csv`
 - Stop ArchivesSpace
 - Create `sql/wip.sql` (db dump)
-- Run `accession.py` (`SELECT count(*) FROM spawned_rlshp;`)
-- Run `collection_management.py`
-- Run `external_document.py`
-- Run `user_defined.py`
+- Run `python3 accession.py` (`SELECT count(*) FROM spawned_rlshp;`)
+- Run `python3 collection_management.py`
+- Run `python3 external_document.py`
+- Run `python3 user_defined.py`
 - Run `publish.sql`
 - Start ArchivesSpace
-- Run `assessments.py`
+- Run `python3 assessments.py`
 - Done!
 
 Running ArchivesSpace for the import step:
