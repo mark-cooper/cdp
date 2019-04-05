@@ -48,7 +48,15 @@ git clone https://github.com/lyrasis/aspace-importer.git
 - Run `publish.sql`
 - Start ArchivesSpace
 - Run `python3 assessments.py`
+- Export the database and gzip it: `gzip $db`
 - Done!
+
+Restore the staging db:
+
+```bash
+ansible-playbook -i inventory/staging/general/ ops/restore.yml \
+  --extra-vars="database=columbiatest" --limit=as-staging-general-app1.lyrtech.org
+```
 
 Running ArchivesSpace for the import step:
 
